@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'bookdata.dart';
 class BookList extends StatelessWidget {
-  const BookList({super.key});
+   BookList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,21 @@ class BookList extends StatelessWidget {
                 itemCount: myBook.length,
                 itemBuilder: (context, index) {
                   return Card(child: Container(
-                      height: 80,child: Text("hello")));
+                      height: 120,child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(Icons.account_balance),
+                          Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(myBook[index].bookName,style: TextStyle(fontSize: 30,color: Colors.indigo,fontWeight: FontWeight.bold)),
+                              Text(myBook[index].bookType,style: TextStyle(fontSize: 18,color: Colors.blueGrey)),
+                              Text(myBook[index].bookPrice,style: TextStyle(fontSize: 20,color: Colors.blueGrey),),
+                              Text("${myBook[index].pages}",style: TextStyle(fontSize: 20,color: Colors.blue,fontStyle: FontStyle.italic),),
+                            ],
+                          ),
+                        ],
+                      )));
                 },
               ),
             ),
